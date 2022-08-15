@@ -1,12 +1,9 @@
-import Head from "next/head";
-import Navbar from "../component/Navbar";
+import { getFeaturedEvents } from "../dummy-data";
 
 export default function Home() {
+  const featuredEvents = getFeaturedEvents();
   return (
     <>
-      <Head>
-        <title>next js</title>
-      </Head>
       <h1>Welcome to Next js Home!</h1>
     </>
   );
