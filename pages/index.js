@@ -1,10 +1,12 @@
+import EventBanner from "../component/events/event-banner";
 import { getFeaturedEvents } from "../dummy-data";
 
 export default function Home() {
   const featuredEvents = getFeaturedEvents();
   return (
-    <>
-      <h1>Welcome to Next js Home!</h1>
-    </>
+    <div>
+      <h1 className="center">Welcome to NextEvents!</h1>
+      <EventBanner />
+    </div>
   );
 }
