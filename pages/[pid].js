@@ -1,6 +1,6 @@
-import path from "path";
-import fs from "fs/promises";
 import React, { Fragment } from "react";
+import fs from "fs/promises";
+import path from "path";
 
 const ProductDetail = (props) => {
   const { loadedProduct } = props;
@@ -14,7 +14,7 @@ const ProductDetail = (props) => {
 
 export default ProductDetail;
 
-export async function getData() {
+async function getData() {
   const filePath = path.join(process.cwd(), "data", "dummy-data.json");
   const jsonData = await fs.readFile(filePath);
   const data = JSON.parse(jsonData);
@@ -37,7 +37,7 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   const data = await getData()
 
-  const ids=data.map((product)=>(product.id))
+  const ids=data.products.map((product)=>(product.id))
   const paramsWithPath=ids.map((id)=>({params:{pid:id}}))
   return {
     paths: paramsWithPath,
